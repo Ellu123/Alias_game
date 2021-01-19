@@ -31,40 +31,42 @@ def FindFile():
 
 def Game():
 
+    svar = True
     list_word = FindFile()
-    print()
-    print()
-    print(" ______________________________________________________________")
-    print("(__   ____________________________________________________   __)")
-    print("   | |             _        _____                _____    | |")
-    print("   | |     /\     | |      |_   _|      /\      / ____|   | |")
-    print("   | |    /  \    | |        | |       /  \    | (___     | |")
-    print("   | |   / /\ \   | |        | |      / /\ \    \___ \    | |")
-    print("   | |  / ____ \  | |____   _| |_    / ____ \   ____) |   | |")
-    print("   | | /_/    \_\ |______| |_____|  /_/    \_\ |_____/    | |")
-    print("   | |                                                    | |")
-    print(" __| |_______________credits: Ella Rejström_______________| |__")
-    print("(______________________________________________________________)")
-
-    print()
-    # Input för att börja programmet
-    print("Vill du börja? (j för ja eller n för nej)")
-    svar = input("> ").upper()
-
-    if svar == "Y" or svar == "YES" or svar == "J" or svar == "JA":
-        svar = True
-
-    else:
-        # Kollar om du verkligen vill avsluta programmet eller om du bara tryckte fel knapp
-        print("Är du säker att du vill avsluta programmet? (j för ja eller n för nej)")
-        svar = input("> ").upper()
-
-        if svar == "N" or svar == "NO" or svar == "NEJ":
-            svar = True
-        else:
-            svar = False
-
     while svar == True:
+        print()
+        print()
+        print(" ______________________________________________________________")
+        print("(__   ____________________________________________________   __)")
+        print("   | |             _        _____                _____    | |")
+        print("   | |     /\     | |      |_   _|      /\      / ____|   | |")
+        print("   | |    /  \    | |        | |       /  \    | (___     | |")
+        print("   | |   / /\ \   | |        | |      / /\ \    \___ \    | |")
+        print("   | |  / ____ \  | |____   _| |_    / ____ \   ____) |   | |")
+        print("   | | /_/    \_\ |______| |_____|  /_/    \_\ |_____/    | |")
+        print("   | |                                                    | |")
+        print(" __| |_______________credits: Ella Rejström_______________| |__")
+        print("(______________________________________________________________)")
+
+        print()
+        # Input för att börja programmet
+        print("Vill du börja? (j för ja eller n för nej)")
+        answ = input("> ").upper()
+
+        if answ == "Y" or answ == "YES" or answ == "J" or answ == "JA":
+            pass
+
+        else:
+            # Kollar om du verkligen vill avsluta programmet eller om du bara tryckte fel knapp
+            print(
+                "Är du säker att du vill avsluta programmet? (j för ja eller n för nej)")
+            answ = input("> ").upper()
+
+            if answ == "N" or answ == "NO" or answ == "NEJ":
+                pass
+            else:
+                quit()
+
         # Tar en anv orden från listan
         random.shuffle(list_word)
         # Gör så att när man printar ut ordet ser det inte hemskt ut
@@ -77,37 +79,36 @@ def Game():
             print("".join(list_word[i]))
             print()
             print()
-            # Tar bort ordet från listan så att den inte kan användas igen
 
             print()
             # Frågar att printa ut nästa ord så att den inte printar ut alla ord på en gång
             print("Nästa ord? (j för ja eller n för nej)")
-            svar = input("> ").upper()
-            if svar == "Y" or svar == "YES" or svar == "J" or svar == "JA":
-                svar = True
-
-            else:
+            answ = input("> ").upper()
+            if answ == "N" or answ == "NO" or answ == "NEJ":
                 print(
                     "Är du säker att du vill avsluta programmet? (j för ja eller n för nej)")
-                svar = input("> ").upper()
-
-                if svar == "N" or svar == "NO" or svar == "NEJ":
-                    svar = True
+                answ = input("> ").upper()
+                if answ == "N" or answ == "NO" or answ == "NEJ":
+                    pass
                 else:
-                    svar = False
-                    break
+                    quit()
         print()
         print("Du har använt alla ord")
         print("Vill du börja på nytt?")
-        svar = input("> ").upper()
-        if svar == "J" or svar == "Y" or svar == "JA" or svar == "YES":
+        answ = input("> ").upper()
+        if answ == "J" or answ == "Y" or answ == "JA" or answ == "YES":
             print()
             print("Vill du använda samma ord?")
-            svarFil = input("> ").upper
-            if svarFil == "J" or svarFil == "Y" or svarFil == "JA" or svarFil == "YES":
+            answ = input("> ").upper
+            if answ == "J" or answ == "Y" or answ == "JA" or answ == "YES":
                 svar = True
             else:
                 Game()
+        else:
+            print()
+            print("Tack för att du spelade")
+            print()
+            quit()
 
 
 Game()
