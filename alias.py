@@ -53,7 +53,7 @@ def Game():
         print("Vill du börja? (j för ja eller n för nej)")
         answ = input("> ").upper()
 
-        if answ == "Y" or answ == "YES" or answ == "J" or answ == "JA":
+        if answ == "Y" or answ == "YES" or answ == "J" or answ == "JA" or answ == "":
             pass
 
         else:
@@ -81,17 +81,20 @@ def Game():
             print()
 
             print()
-            # Frågar att printa ut nästa ord så att den inte printar ut alla ord på en gång
-            print("Nästa ord? (j för ja eller n för nej)")
-            answ = input("> ").upper()
-            if answ == "N" or answ == "NO" or answ == "NEJ":
-                print(
-                    "Är du säker att du vill avsluta programmet? (j för ja eller n för nej)")
+            if (i + 1) < len(list_word):
+                # Frågar att printa ut nästa ord så att den inte printar ut alla ord på en gång
+                print("Nästa ord? (j för ja eller n för nej)")
                 answ = input("> ").upper()
                 if answ == "N" or answ == "NO" or answ == "NEJ":
-                    pass
-                else:
-                    quit()
+                    print(
+                        "Är du säker att du vill avsluta programmet? (j för ja eller n för nej)")
+                    answ = input("> ").upper()
+                    if answ == "N" or answ == "NO" or answ == "NEJ":
+                        pass
+                    else:
+                        quit()
+            else:
+                pass
         print()
         print("Du har använt alla ord")
         print("Vill du börja på nytt?")
@@ -99,7 +102,7 @@ def Game():
         if answ == "J" or answ == "Y" or answ == "JA" or answ == "YES":
             print()
             print("Vill du använda samma ord?")
-            answ = input("> ").upper
+            answ = input("> ").upper()
             if answ == "J" or answ == "Y" or answ == "JA" or answ == "YES":
                 svar = True
             else:
