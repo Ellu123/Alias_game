@@ -5,8 +5,15 @@
 &nbsp;
 ![Alias game](/img/alias-game-screen.png)
 
-### The program is run by python and it requires that you have python downloaded.
-
 ### This game is made in Swedish but is easy to configure for your own purposes.
 
+## UPDATE! 
+- ### Now you can choose wich file you want to use as long as it's an txt file and in the folder "TextFiler". 
+- ### You can start playing again if you want to without exiting the game and use the same file without writing it again.
+
+
+### This program require that you have Python .v 3 downloaded
+### Click [Here](https://www.python.org/downloads/) to install Python 
+
+&nbsp;
 ## **Have Fun!**

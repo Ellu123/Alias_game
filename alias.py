@@ -5,14 +5,13 @@ def FindFile():
 
     print("Vilken fil vill du använda?")
     textFile = input("> ")
-    path = "./TextFiler/" + textFile + ".txt"
-    # Tar orden från text filen och gör den till en lista
     # Låter dig välja vilken fil du vill använda till spelet
+    path = "./TextFiler/" + textFile + ".txt"
     while True:
         try:
             file = open(path, "r", encoding="UTF-8")
         except FileNotFoundError:                           # Kollar att filen finns
-            print("Filnamnet hittades inte, försök igen")
+            print("Filnamnet hittades inte, försök igen.")
             textFile = input("> ")
             path = "./TextFiler/" + textFile + ".txt"
         else:
@@ -24,9 +23,16 @@ def FindFile():
         if l == "\n":  # Kollar ifall det finns några tomma rader. If == True, struntar den i den och bara börjar på nästa
             pass
         else:
+            # Tar orden från text filen och gör den till en lista
             l = l.replace("\n", "")
             list_word.append(l.split(", "))
-    return list_word
+
+    if list_word == []:  # Kollar ifall det finns ord i filen över huvudtaget. Om den saknar ord börjar funktionen på nytt
+        print("Det finns inga ord i denna textfil, välj en annan.")
+        print()
+        FindFile()
+    else:
+        return list_word
 
 
 def Game():
@@ -67,11 +73,9 @@ def Game():
             else:
                 quit()
 
-        # Tar en anv orden från listan
         random.shuffle(list_word)
-        # Gör så att när man printar ut ordet ser det inte hemskt ut
-        #alias_ord_finslipning = "".join(list_word)
 
+        # Kör en for loop igenom alla ord (eller tills du vill sluta)
         for i in range(0, len(list_word)):
 
             print()
@@ -96,20 +100,23 @@ def Game():
             else:
                 pass
         print()
-        print("Du har använt alla ord")
-        print("Vill du börja på nytt?")
+        # Säger att du har använt alla ord och frågar om du vill spela igen
+        print("Du har använt alla ord.")
+        print("Vill du börja på nytt? (j el. n)")
         answ = input("> ").upper()
         if answ == "J" or answ == "Y" or answ == "JA" or answ == "YES":
             print()
-            print("Vill du använda samma ord?")
+            # Frågar om du vill använda samma ord eller om du vill använda en ny fil
+            print("Vill du använda samma ord? (j el. n)")
             answ = input("> ").upper()
+            # Börjar från att loggan printas (far inte till FindFile funktionen)
             if answ == "J" or answ == "Y" or answ == "JA" or answ == "YES":
                 svar = True
             else:
-                Game()
+                Game()  # Startar om hela Game funktionen
         else:
             print()
-            print("Tack för att du spelade")
+            print("Tack för att du spelade!")
             print()
             quit()
 
